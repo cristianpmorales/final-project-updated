@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Create a campaign</title>
+    <link rel="stylesheet" href="create_campaignCSS.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  </head>
+  <body>
+    <section class="container">
+        <header>
+          <section class="page-header text-center">
+            <h1>Create a Campaign</h1>
+          </section>
+
+    <div class="containerNav">
+      <nav class="primary_nav_wrap">
+      <ul>
+        <li> <a href="/create_campaign">Create Election Campaign</a></li>
+        <li> <a href="/completedlist">View completed list</a></li>
+        <li> <a href="/profile">Create a list</a></li>
+        <li><a href="/">Go to Canvasser</a></li>
+    </div>
+
+    <section class="containerForm">
+      <form action="/createcampaign" method="post" charset="utf-8">
+        <label>Description </label> <input type="text" name="description" />
+        <label>Script </label> <input type="text" name="campaignScript" />
+        <label>Status of the election </label> <select class="" name="status">
+          <option value="Stated">Started</option>
+          <option value="Completed">Completed</option>
+        </select>
+        <button type="submit" name="button">Submit</button>
+      </form>
+    </section>
+
+    <section class = "containerCampaign">
+      <h3>Started Campaign</h3>
+    <% campaign.forEach( function ( campaign ){ %>
+      <% if (campaign.status != 'Completed') { %>
+        <p> <%= campaign.description %> </p>
+        <p> <%= campaign.campaignScript %></p>
+        <p> <%= campaign.status%> </p>
+      <% }; %>
+    <% }); %>
+  </section class = "containerCampaign">
+
+  <section class = "containerCmplete">
+      <h3>Compete campaign</h3>
+        <% campaign.forEach( function ( campaign ){ %>
+          <% if (campaign.status === 'Completed') {%>
+            <p> <%= campaign.description %> </p>
+            <p> <%= campaign.campaignScript %></p>
+            <p> <%= campaign.status%> </p>
+          <% }; %>
+        <% }); %>
+  </section class = "containerCmplete">
+
+  </body>
+</html>

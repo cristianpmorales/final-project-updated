@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Canvasser</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="canvass.css">
+  </head>
+  <body>
+    <section class="container">
+        <header>
+          <section class="page-header text-center">
+            <h1>Canvasser</h1>
+          </section>
+    <section class="containerButton">
+      <a href="/login" class="btn btn-default">Login</a>
+      <a href="/signup" class="btn btn-default">Signup</a>
+    </section>
+
+    <header>
+      <section class="page-header text-center">
+        <h1>Complete your list</h1>
+      </section>
+    </header>
+    <section class="containerScript">
+      <h4>Script for the Election</h4>
+      <% campaign.forEach( function ( campaign ){ %>
+        <% if (campaign.status != "Completed") { %>
+        <section class="item">
+          <%= campaign.campaignScript %>
+            <section>
+              <h4>Local Neighbor</h4>
+            <% peopleList.forEach( function ( peopleList ){ %>
+              <% if (peopleList.votingActivity === 'N') {%>
+              <section class="containerList">
+                  <span> <h5>Name: </h5> <%= peopleList.firstName %> <span> </span> <%= peopleList.lastName %></span>
+                  <span> <h5>Address: </h5> <%= peopleList.address %> </span>
+              </section>
+              <%- include('editpeople'); %>
+              <% }; %>
+            <% }); %>
+          </section>
+        </section>
+        <% }; %>
+      <% }); %>
+    </section>
+  </body>
+</html>

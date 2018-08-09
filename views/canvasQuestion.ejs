@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Canvasser</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  </head>
+  <body>
+    <h1>Canvasser</h1>
+    <header>
+      <section class="page-header text-center">
+        <h1>Complete your list</h1>
+      </section>
+
+
+    </header>
+
+
+    <section>
+      <% campaign.forEach( function ( campaign ){ %> -->
+        <% if (campaign.status != "Completed") { %>
+        <section class="item">
+          <%= campaign.campaignScript %>
+            <section>
+              <% peopleList.forEach ( function (peopleList) {%>
+                <% if (peopleList.votingActivity === 'N') {%>
+              <section class="item">
+                  <span> <%= peopleList.firstName %> <%= peopleList.lastName %> </span>
+                  <span> <%= peopleList.address %> </span>
+                  <span> <%= peopleList.votingActivity %> </span>
+              </section>
+              <% } %>
+              <% }); %>
+          </section>
+        </section>
+        <% }; %>
+      <% }); %>
+    </section>
+
+
+
+
+
+    <section>
+      <p id="month"></p>
+      <p>
+      <button id="prev">prev</button>
+      <button id="next">next</button>
+      </p>
+    </section>
+
+    <script src="canvasQues.js" charset="utf-8"></script>
+  </body>
+</html>

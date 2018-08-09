@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+
+    <% peopleList.forEach( function ( peopleList ){ %>
+      <% if( peopleList.votingActivity == "N" ){ %>
+      <div class="item-new">
+      <% }else{ %>
+      <div class="item">
+      <% } %>
+  <% if( peopleList.votingActivity == "N" ){ %>
+    <form class="update-form" action="/updatepeople/<%= peopleList._id %>" method="post" accept-charset="utf-8">
+      <select class="" name="votingActivity">
+        <option value="Y">Voted</option>
+        <option value="N">Have Not Voted</option>
+        <option value="NH">Not Home</option>
+        <option value="R">Refused</option>
+      </select>
+      <button type="submit" name="button">Submit</button>
+    </form>
+    <% }else{ %>
+    <% } %>
+    <% }) %>
+
+
+
+</div>
+</body>
+</html>
